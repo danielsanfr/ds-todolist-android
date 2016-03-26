@@ -16,4 +16,8 @@
         <item name="material_drawer_selected_text">?attr/colorAccent</item>
         <item name="material_drawer_header_selection_text">@color/drawer_header_selection_text</item>
     </style>
+    <style name="TasksTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>

@@ -1,5 +1,6 @@
 package br.com.danielsan.dstodolist.lists;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -16,6 +17,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import br.com.danielsan.dstodolist.R;
+import br.com.danielsan.dstodolist.tasks.TasksActivity;
 
 /**
  * Created by daniel on 25/03/16.
@@ -97,7 +99,9 @@ public class ListsFragment extends Fragment {
     private final Drawer.OnDrawerItemClickListener onDrawerItemClickListener = new Drawer.OnDrawerItemClickListener() {
         @Override
         public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-            return false;
+            getActivity().startActivity(new Intent(getContext(), TasksActivity.class));
+            getActivity().overridePendingTransition(R.anim.activity_right_in, R.anim.activity_right_out);
+            return true;
         }
     };
 

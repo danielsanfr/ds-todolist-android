@@ -37,4 +37,5 @@ public class MainActivity extends AppCompatActivity {
                     .icon(GoogleMaterial.Icon.gmd_add).color(Color.WHITE).sizeDp(48));
         }
     }
+
 }
