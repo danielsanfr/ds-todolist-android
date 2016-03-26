@@ -1,5 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="fab_margin">@dimen/view_spacing</dimen>
+    <dimen name="fab_margin_top">@dimen/view_spacing</dimen>
+    <dimen name="fab_margin_left">@dimen/view_spacing</dimen>
+    <dimen name="fab_margin_right">@dimen/view_spacing</dimen>
+    <dimen name="fab_margin_bottom">@dimen/view_spacing</dimen>
+
+    <dimen name="view_spacing_5">80dp</dimen>
+    <dimen name="view_spacing_4">64dp</dimen>
+    <dimen name="view_spacing_3">48dp</dimen>
+    <dimen name="view_spacing_2">32dp</dimen>
+    <dimen name="view_spacing_15">24dp</dimen>
+    <dimen name="view_spacing">16dp</dimen>
+    <dimen name="view_spacing_075">14dp</dimen>
+    <dimen name="view_spacing_05">8dp</dimen>
+    <dimen name="view_spacing_025">4dp</dimen>
+
+    <dimen name="view_size_2">128dp</dimen>
+    <dimen name="view_size_15">96dp</dimen>
+    <dimen name="view_size">64dp</dimen>
+    <dimen name="view_size_085">54.4dp</dimen>
+    <dimen name="view_size_075">48dp</dimen>
+    <dimen name="view_size_06">38.4dp</dimen>
+    <dimen name="view_size_05">32dp</dimen>
+    <dimen name="view_size_025">16dp</dimen>
+
+    <dimen name="font_normal">14sp</dimen>
+    <dimen name="font_title">16sp</dimen>
 </resources>
