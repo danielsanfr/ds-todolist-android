@@ -34,6 +34,7 @@ dependencies {
     compile 'com.android.support:preference-v14:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
     compile 'com.r0adkll:slidableactivity:2.0.5'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'br.com.ilhasoft.support:support-view:1.0.3'
     compile 'com.mikepenz:google-material-typeface:2.2.0.1.original@aar'
     compile('com.mikepenz:materialdrawer:5.1.6@aar') {

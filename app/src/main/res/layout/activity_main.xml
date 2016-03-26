@@ -23,13 +23,38 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_add_task"
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fam_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            app:layout_behavior="br.com.danielsan.dstodolist.widgets.behaviors.SlideScrollAwareBehavior"/>
+            app:fab_addButtonColorNormal="@color/md_light_blue_500"
+            app:fab_addButtonColorPressed="@color/md_light_blue_900"
+            app:fab_addButtonPlusIconColor="@color/white"
+            app:fab_labelStyle="@style/FAB_Menu_Labels_style"
+            app:fab_labelsPosition="left"
+            app:layout_behavior="br.com.danielsan.dstodolist.widgets.behaviors.FabSnackbarAndScrollBehavior">
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/md_light_blue_500"
+                app:fab_colorPressed="@color/md_light_blue_900"
+                app:fab_size="mini"
+                app:fab_title="@string/add_a_task"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/md_light_blue_500"
+                app:fab_colorPressed="@color/md_light_blue_900"
+                app:fab_size="mini"
+                app:fab_title="@string/create_a_list"/>
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     </android.support.design.widget.CoordinatorLayout>
 

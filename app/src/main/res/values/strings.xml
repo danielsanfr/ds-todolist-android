@@ -2,4 +2,6 @@
 <resources>
     <string name="app_name">DsTodoList</string>
     <string name="add_a_to_do">Add a to-do…</string>
+    <string name="add_a_task">Add a task</string>
+    <string name="create_a_list">Create a list</string>
 </resources>

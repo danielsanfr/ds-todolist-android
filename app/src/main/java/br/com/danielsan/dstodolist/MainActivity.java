@@ -30,11 +30,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        binding.container.removeView(binding.fabAddTask);
-        if (binding.fabAddTask.getVisibility() == View.VISIBLE) {
-            binding.container.addView(binding.fabAddTask);
+        binding.container.removeView(binding.famAdd);
+        if (binding.famAdd.getVisibility() == View.VISIBLE) {
+            binding.container.addView(binding.famAdd);
+
             binding.fabAddTask.setImageDrawable(new IconicsDrawable(this)
-                    .icon(GoogleMaterial.Icon.gmd_add).color(Color.WHITE).sizeDp(48));
+                    .icon(GoogleMaterial.Icon.gmd_assignment_turned_in).color(Color.WHITE).sizeDp(18));
+            binding.fabAddList.setImageDrawable(new IconicsDrawable(this)
+                    .icon(GoogleMaterial.Icon.gmd_playlist_add).color(Color.WHITE).sizeDp(18));
+
+            binding.fabAddTask.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.famAdd.collapse();
+                }
+            });
+            binding.fabAddList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    binding.famAdd.collapse();
+                }
+            });
         }
     }
 
