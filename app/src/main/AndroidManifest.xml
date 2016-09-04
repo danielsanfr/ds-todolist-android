@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tasks.TasksActivity"
+            android:name=".features.task.view.TaskActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TasksTheme"/>
     </application>

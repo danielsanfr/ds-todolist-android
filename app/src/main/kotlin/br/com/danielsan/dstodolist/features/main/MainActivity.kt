@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 
-import com.mikepenz.google_material_typeface_library.GoogleMaterial
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
@@ -50,7 +49,7 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun showLists(lists: List<TaskList>) {
         for (taskList in lists) {
-            drawer?.addItem(PrimaryDrawerItem().withName(taskList.title).withIcon(GoogleMaterial.Icon.gmd_list))
+            drawer?.addItem(PrimaryDrawerItem().withName(taskList.title))
         }
     }
 

@@ -1,4 +1,4 @@
-package br.com.danielsan.dstodolist.tasks
+package br.com.danielsan.dstodolist.features.task.view
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -11,18 +11,13 @@ import br.com.danielsan.dstodolist.R
 /**
  * Created by daniel on 26/03/16.
  */
-class TasksActivity : AppCompatActivity() {
+class TaskActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Slidr.attach(this)
 
-        findViewById(android.R.id.content).setBackgroundColor(ContextCompat.getColor(this, R.color.drawer_background))
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                    .add(android.R.id.content, TasksFragment.newInstance())
-                    .commit()
-        }
+        findViewById(android.R.id.content)?.setBackgroundColor(ContextCompat.getColor(this, R.color.drawer_background))
     }
 
     override fun onBackPressed() {

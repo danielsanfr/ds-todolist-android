@@ -7,7 +7,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="br.com.danielsan.dstodolist.MainActivity">
+        tools:context="br.com.danielsan.dstodolist.features.main.MainActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -23,38 +23,13 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:id="@+id/fam_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            app:fab_addButtonColorNormal="@color/md_light_blue_500"
-            app:fab_addButtonColorPressed="@color/md_light_blue_900"
-            app:fab_addButtonPlusIconColor="@color/white"
-            app:fab_labelStyle="@style/FAB_Menu_Labels_style"
-            app:fab_labelsPosition="left"
-            app:layout_behavior="br.com.danielsan.dstodolist.widgets.behaviors.FabSnackbarAndScrollBehavior">
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_add_task"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_colorNormal="@color/md_light_blue_500"
-                app:fab_colorPressed="@color/md_light_blue_900"
-                app:fab_size="mini"
-                app:fab_title="@string/add_a_task"/>
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab_add_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_colorNormal="@color/md_light_blue_500"
-                app:fab_colorPressed="@color/md_light_blue_900"
-                app:fab_size="mini"
-                app:fab_title="@string/create_a_list"/>
-
-        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+        <fragment
+            class="br.com.danielsan.dstodolist.features.task.list.TaskListFragment"
+            android:tag="TaskListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:layout="@layout/fragment_task_list" />
 
     </android.support.design.widget.CoordinatorLayout>
 
