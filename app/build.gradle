@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'org.greenrobot.greendao'
 apply from: "../artifacts.gradle"
 
 android {
@@ -7,7 +8,7 @@ android {
     buildToolsVersion "24.0.2"
 
     dataBinding {
-        enabled = true
+        enabled true
     }
     defaultConfig {
         applicationId "br.com.danielsan.dstodolist"
@@ -34,19 +35,20 @@ dependencies {
 
     compile fileTree(dir: "libs", include: ["*.jar"])
     testCompile "junit:junit:4.12"
-    compile "com.android.support:design:$support_version"
-    compile "com.android.support:cardview-v7:$support_version"
-    compile "com.android.support:appcompat-v7:$support_version"
-    compile "com.android.support:preference-v7:$support_version"
-    compile "com.android.support:preference-v14:$support_version"
-    compile "com.android.support:recyclerview-v7:$support_version"
+    compile "com.android.support:design:${support_version}"
+    compile "com.android.support:cardview-v7:${support_version}"
+    compile "com.android.support:appcompat-v7:${support_version}"
+    compile "com.android.support:preference-v7:${support_version}"
+    compile "com.android.support:preference-v14:${support_version}"
+    compile "com.android.support:recyclerview-v7:${support_version}"
+    compile 'org.greenrobot:greendao:3.1.1'
     compile "com.r0adkll:slidableactivity:2.0.5"
     compile "com.getbase:floatingactionbutton:1.10.1"
     compile "com.mikepenz:google-material-typeface:2.2.0.1.original@aar"
     compile("com.mikepenz:materialdrawer:5.1.6@aar") {
         transitive = true
     }
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
     kapt "com.android.databinding:compiler:2.1.0"
 }
 
@@ -56,10 +58,14 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlin_version}"
     }
 }
 
 kapt {
     generateStubs = true
+}
+
+greendao {
+    schemaVersion 1
 }
