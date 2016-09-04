@@ -5,8 +5,16 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+
+import com.mikepenz.google_material_typeface_library.GoogleMaterial
+import com.mikepenz.materialdrawer.Drawer
+import com.mikepenz.materialdrawer.DrawerBuilder
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
+
 import br.com.danielsan.dstodolist.R
+import br.com.danielsan.dstodolist.daoSession
 import br.com.danielsan.dstodolist.databinding.ActivityMainBinding
+import br.com.danielsan.dstodolist.models.TaskList
 
 /**
  * Created by daniel on 04/09/16.
@@ -14,7 +22,8 @@ import br.com.danielsan.dstodolist.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), MainView {
 
-    private val presenter: MainPresenter by lazy { MainPresenter() }
+    private var drawer: Drawer? = null
+    private val presenter: MainPresenter by lazy { MainPresenter(application.daoSession().taskListDao) }
     private val progress: ProgressDialog by lazy {
         val progressDialog = ProgressDialog(this)
         progressDialog.isIndeterminate = true
@@ -29,7 +38,20 @@ class MainActivity : AppCompatActivity(), MainView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(binding.toolbar)
+
+        drawer = DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(binding.toolbar)
+                .withOnDrawerItemClickListener { view, position, drawerItem -> false }
+                .build()
+
         presenter.attachView(this)
+    }
+
+    override fun showLists(lists: List<TaskList>) {
+        for (taskList in lists) {
+            drawer?.addItem(PrimaryDrawerItem().withName(taskList.title).withIcon(GoogleMaterial.Icon.gmd_list))
+        }
     }
 
     override fun showLoading() {
