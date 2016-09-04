@@ -25,7 +25,12 @@ class ListsFragment : Fragment() {
     private var drawer: Drawer? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        drawer = DrawerBuilder().withActivity(activity).withSavedInstance(savedInstanceState).withDisplayBelowStatusBar(false).withTranslucentStatusBar(false).withDrawerLayout(R.layout.material_drawer_fits_not).addDrawerItems(
+        drawer = DrawerBuilder().withActivity(activity)
+                .withSavedInstance(savedInstanceState)
+                .withDisplayBelowStatusBar(false)
+                .withTranslucentStatusBar(false)
+                .withDrawerLayout(R.layout.material_drawer_fits_not)
+                .addDrawerItems(
                 PrimaryDrawerItem().withName("Daniel").withIcon(GoogleMaterial.Icon.gmd_list),
                 PrimaryDrawerItem().withName("Erika").withIcon(GoogleMaterial.Icon.gmd_list),
                 PrimaryDrawerItem().withName("Daniel").withIcon(GoogleMaterial.Icon.gmd_list),
@@ -57,14 +62,16 @@ class ListsFragment : Fragment() {
                 PrimaryDrawerItem().withName("Daniel").withIcon(GoogleMaterial.Icon.gmd_list),
                 PrimaryDrawerItem().withName("Erika").withIcon(GoogleMaterial.Icon.gmd_list),
                 PrimaryDrawerItem().withName("Daniel").withIcon(GoogleMaterial.Icon.gmd_list),
-                PrimaryDrawerItem().withName("Erika").withIcon(GoogleMaterial.Icon.gmd_list)).withOnDrawerItemClickListener(onDrawerItemClickListener).buildView()
+                PrimaryDrawerItem().withName("Erika").withIcon(GoogleMaterial.Icon.gmd_list))
+                .withOnDrawerItemClickListener(onDrawerItemClickListener)
+                .buildView()
 
         return drawer!!.slider
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        this.configList()
+        configList()
     }
 
     private fun configList() {
@@ -86,7 +93,6 @@ class ListsFragment : Fragment() {
     }
 
     companion object {
-
         fun newInstance(): ListsFragment {
             return ListsFragment()
         }

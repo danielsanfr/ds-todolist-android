@@ -16,24 +16,29 @@ import br.com.danielsan.dstodolist.lists.ListsFragment
 
 class MainActivity : AppCompatActivity() {
 
-    private var binding: ActivityMainBinding? = null
     private var isPortrait: Boolean = false
+    private val binding: ActivityMainBinding by lazy {
+        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        isPortrait = binding!!.famAdd.visibility == View.VISIBLE
-
-        this.setSupportActionBar(binding!!.toolbar)
+        isPortrait = binding.famAdd.visibility == View.VISIBLE
+        setSupportActionBar(binding.toolbar)
 
         if (savedInstanceState == null) {
-            this.supportFragmentManager.beginTransaction().add(R.id.container, ListsFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.container, ListsFragment.newInstance())
+                    .commit()
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        this.menuInflater.inflate(R.menu.main, menu)
-        menu.findItem(R.id.mn_search).icon = IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_search).colorRes(R.color.white).sizeDp(24)
+        menuInflater.inflate(R.menu.main, menu)
+        menu.findItem(R.id.mn_search).icon = IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_search)
+                .colorRes(R.color.white)
+                .sizeDp(24)
 
         menu.findItem(R.id.mn_send).isVisible = !isPortrait
         menu.findItem(R.id.mn_print).isVisible = !isPortrait
@@ -42,7 +47,10 @@ class MainActivity : AppCompatActivity() {
 
         val sort = menu.findItem(R.id.mn_sort)
         sort.isVisible = !isPortrait
-        sort.icon = IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_sort).colorRes(R.color.white).sizeDp(24)
+        sort.icon = IconicsDrawable(this)
+                .icon(GoogleMaterial.Icon.gmd_sort)
+                .colorRes(R.color.white)
+                .sizeDp(24)
 
         return true
     }
@@ -50,15 +58,15 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        binding!!.container.removeView(binding!!.famAdd)
+        binding.container.removeView(binding.famAdd)
         if (isPortrait) {
-            binding!!.container.addView(binding!!.famAdd)
+            binding.container.addView(binding.famAdd)
 
-            binding!!.fabAddTask.setImageDrawable(IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_assignment_turned_in).color(Color.WHITE).sizeDp(18))
-            binding!!.fabAddList.setImageDrawable(IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_playlist_add).color(Color.WHITE).sizeDp(18))
+            binding.fabAddTask.setImageDrawable(IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_assignment_turned_in).color(Color.WHITE).sizeDp(18))
+            binding.fabAddList.setImageDrawable(IconicsDrawable(this).icon(GoogleMaterial.Icon.gmd_playlist_add).color(Color.WHITE).sizeDp(18))
 
-            binding!!.fabAddTask.setOnClickListener { binding!!.famAdd.collapse() }
-            binding!!.fabAddList.setOnClickListener { binding!!.famAdd.collapse() }
+            binding.fabAddTask.setOnClickListener { binding.famAdd.collapse() }
+            binding.fabAddList.setOnClickListener { binding.famAdd.collapse() }
         }
     }
 

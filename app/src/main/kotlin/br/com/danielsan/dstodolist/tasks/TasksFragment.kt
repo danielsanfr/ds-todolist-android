@@ -15,13 +15,13 @@ class TasksFragment : Fragment() {
 
     private var binding: FragmentTasksBinding? = null
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         binding = FragmentTasksBinding.inflate(inflater, container, false)
         return binding!!.root
     }
 
     companion object {
-
         fun newInstance(): TasksFragment {
             return TasksFragment()
         }
